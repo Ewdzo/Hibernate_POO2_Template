@@ -50,42 +50,88 @@ public abstract class ExampleManager {
         t5.setCategorias(List.of(c5));
 
 
-        EntityManager em = HibernateManager.em;
+        EntityManager em = new HibernateManager().em;
 
         try {
             em.getTransaction().begin();
             
-            HibernateManager.em.persist(pf1);
-            HibernateManager.em.persist(pf2);
-            HibernateManager.em.persist(pf3);
-            HibernateManager.em.persist(pf4);
-            HibernateManager.em.persist(pf5);
+            em.persist(pf1);
+            em.persist(pf2);
+            em.persist(pf3);
+            em.persist(pf4);
+            em.persist(pf5);
     
-            HibernateManager.em.persist(pj1);
-            HibernateManager.em.persist(pj2);
-            HibernateManager.em.persist(pj3);
-            HibernateManager.em.persist(pj4);
-            HibernateManager.em.persist(pj5);
+            em.persist(pj1);
+            em.persist(pj2);
+            em.persist(pj3);
+            em.persist(pj4);
+            em.persist(pj5);
     
-            HibernateManager.em.persist(cb1);
-            HibernateManager.em.persist(cb2);
-            HibernateManager.em.persist(cb3);
-            HibernateManager.em.persist(cb4);
-            HibernateManager.em.persist(cb5);
+            em.persist(cb1);
+            em.persist(cb2);
+            em.persist(cb3);
+            em.persist(cb4);
+            em.persist(cb5);
 
-            HibernateManager.em.persist(t1);
-            HibernateManager.em.persist(t2);
-            HibernateManager.em.persist(t3);
-            HibernateManager.em.persist(t4);
-            HibernateManager.em.persist(t5);
+            em.persist(t1);
+            em.persist(t2);
+            em.persist(t3);
+            em.persist(t4);
+            em.persist(t5);
 
-            HibernateManager.em.persist(c1);
-            HibernateManager.em.persist(c2);
-            HibernateManager.em.persist(c3);
-            HibernateManager.em.persist(c4);
-            HibernateManager.em.persist(c5);
+            em.persist(c1);
+            em.persist(c2);
+            em.persist(c3);
+            em.persist(c4);
+            em.persist(c5);
 
-            em.getTransaction().commit(); // end of transaction
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
+    }
+
+    static void busqueContaBancaria(int id) {
+        EntityManager em = new HibernateManager().em;
+
+        try {
+            em.getTransaction().begin();
+            
+            ContaBancaria cb = em.find(ContaBancaria.class, id);
+
+            System.out.print("Pessoa Fisica Encontrada: " + cb);
+
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
+    }
+
+    static void deletaContaBancaria(int id) {
+        EntityManager em = new HibernateManager().em;
+
+        try {
+            em.getTransaction().begin();
+            
+            ContaBancaria cb = em.find(ContaBancaria.class, id);
+            em.remove(cb);
+
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
+    }
+
+    static void zeraSaldoContaBancaria(int id) {
+        EntityManager em = new HibernateManager().em;
+
+        try {
+            em.getTransaction().begin();
+            
+            ContaBancaria cb = em.find(ContaBancaria.class, id);
+            cb.saldo = 0.0;
+
+            em.getTransaction().commit();
         } finally {
             em.close();
         }

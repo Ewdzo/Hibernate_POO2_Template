@@ -10,18 +10,16 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 
 public class HibernateManager {
-    static String puName = "pu-name";
-    static Map<String, String> props = new HashMap<>();
-    static EntityManagerFactory emf;
-    static EntityManager em;
+    String puName = "pu-name";
+    Map<String, String> props = new HashMap<>();
+    EntityManagerFactory emf;
+    EntityManager em;
 
-    static {
+    HibernateManager() {
         props.put("hibernate.show_sql", "true");
         props.put("hibernate.hbm2ddl.auto", "create");
 
         emf = new HibernatePersistenceProvider().createContainerEntityManagerFactory(new CustomPersistenceUnitInfo(puName), props);
         em = emf.createEntityManager();
     }
-
-
 }

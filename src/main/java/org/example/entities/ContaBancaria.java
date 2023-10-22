@@ -12,7 +12,7 @@ public class ContaBancaria {
     @OneToOne
     Cliente titular;
     
-    double saldo;
+    public double saldo;
 
     public ContaBancaria(int idConta, Cliente titular, double saldo) {
         this.idConta = idConta;
