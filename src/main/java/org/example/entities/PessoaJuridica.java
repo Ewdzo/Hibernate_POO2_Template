@@ -2,9 +2,24 @@ package org.example.entities;
 
 import java.util.Date;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+
+@Entity
 public class PessoaJuridica extends Cliente {
-    int CNPJ;
-    int CPFMajoritario;
+
+    @Column(nullable=false, unique = true) 
+    String CNPJ;
+
+    long CPFMajoritario;
     String razaoSocial;
     Date dataDeAbertura;
+
+    PessoaJuridica(String CNPJ, long CPFMajoritario, String razaoSocial, Date dataDeAbertura) {
+        super();
+        this.CNPJ = CNPJ;
+        this.CPFMajoritario = CPFMajoritario;
+        this.razaoSocial = razaoSocial;
+        this.dataDeAbertura = dataDeAbertura;
+    }
 }
