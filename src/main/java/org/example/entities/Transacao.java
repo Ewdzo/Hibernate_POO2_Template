@@ -21,10 +21,10 @@ public class Transacao {
     String tipo;
     Date data;
 
-    public Transacao(int idTransacao, ContaBancaria conta, Cliente titular, double valor, String tipo, Date data){
+    public Transacao(int idTransacao, ContaBancaria conta, double valor, String tipo, Date data){
         this.idTransacao = idTransacao;
         this.conta = conta;
-        this.titular = titular;
+        this.titular = conta.titular;
         this.valor = valor;
         this.tipo = tipo;
         this.data = data;
