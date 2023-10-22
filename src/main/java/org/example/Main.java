@@ -12,14 +12,8 @@ import java.util.Map;
 public class Main {
 
     public static void main(String[] args) {
-        String puName = "pu-name";
-        Map<String, String> props = new HashMap<>();
-        props.put("hibernate.show_sql", "true");
-        props.put("hibernate.hbm2ddl.auto", "create");
+        EntityManager em = HibernateManager.em;
 
-
-        EntityManagerFactory emf = new HibernatePersistenceProvider().createContainerEntityManagerFactory(new CustomPersistenceUnitInfo(puName), props);
-        EntityManager em = emf.createEntityManager();
 
         try {
             em.getTransaction().begin();
