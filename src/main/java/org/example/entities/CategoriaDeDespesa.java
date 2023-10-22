@@ -9,7 +9,7 @@ public class CategoriaDeDespesa {
 
     double imposto;
 
-    CategoriaDeDespesa(String categoria, double imposto) {
+    public CategoriaDeDespesa(String categoria, double imposto) {
         this.categoria = categoria;
         this.imposto = imposto;
     };

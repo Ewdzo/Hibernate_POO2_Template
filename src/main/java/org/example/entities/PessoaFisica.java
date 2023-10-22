@@ -14,7 +14,7 @@ public class PessoaFisica extends Cliente {
     String nome;
     Date dataDeNascimento;
 
-    PessoaFisica(String nome, Date dataDeNascimento) {
+    public PessoaFisica(String nome, Date dataDeNascimento) {
         super();
         this.nome = nome;
         this.dataDeNascimento = dataDeNascimento;

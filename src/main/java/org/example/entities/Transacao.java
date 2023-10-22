@@ -21,7 +21,7 @@ public class Transacao {
     String tipo;
     Date data;
 
-    Transacao(int idTransacao, ContaBancaria conta, Cliente titular, double valor, String tipo, Date data){
+    public Transacao(int idTransacao, ContaBancaria conta, Cliente titular, double valor, String tipo, Date data){
         this.idTransacao = idTransacao;
         this.conta = conta;
         this.titular = titular;

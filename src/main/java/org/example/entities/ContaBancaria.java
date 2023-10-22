@@ -17,7 +17,7 @@ public class ContaBancaria {
     
     double saldo;
 
-    ContaBancaria(Cliente titular, double saldo) {
+    public ContaBancaria(Cliente titular, double saldo) {
         this.titular = titular;
         this.saldo = saldo;
     };

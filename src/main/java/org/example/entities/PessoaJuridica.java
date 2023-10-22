@@ -15,7 +15,7 @@ public class PessoaJuridica extends Cliente {
     String razaoSocial;
     Date dataDeAbertura;
 
-    PessoaJuridica(String CNPJ, long CPFMajoritario, String razaoSocial, Date dataDeAbertura) {
+    public PessoaJuridica(String CNPJ, long CPFMajoritario, String razaoSocial, Date dataDeAbertura) {
         super();
         this.CNPJ = CNPJ;
         this.CPFMajoritario = CPFMajoritario;
