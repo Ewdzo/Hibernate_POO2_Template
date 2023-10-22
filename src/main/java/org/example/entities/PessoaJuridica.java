@@ -11,11 +11,11 @@ public class PessoaJuridica extends Cliente {
     @Column(nullable=false, unique = true) 
     String CNPJ;
 
-    long CPFMajoritario;
+    String CPFMajoritario;
     String razaoSocial;
     Date dataDeAbertura;
 
-    public PessoaJuridica(String CNPJ, long CPFMajoritario, String razaoSocial, Date dataDeAbertura) {
+    public PessoaJuridica(String CNPJ, String CPFMajoritario, String razaoSocial, Date dataDeAbertura) {
         super();
         this.CNPJ = CNPJ;
         this.CPFMajoritario = CPFMajoritario;
