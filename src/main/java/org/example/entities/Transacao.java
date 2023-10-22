@@ -1,9 +1,13 @@
 package org.example.entities;
 
 import java.util.Date;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 
 @Entity
@@ -16,6 +20,14 @@ public class Transacao {
 
     @ManyToOne
     Cliente titular;
+
+    @ManyToMany
+    @JoinTable(
+ 	    name = "TransacaoDespesa",
+		joinColumns = @JoinColumn(name = "transacao"),
+	    inverseJoinColumns = @JoinColumn(name = "despesa")
+	)
+    List<CategoriaDeDespesa> categoria;
     
     double valor;
     String tipo;
