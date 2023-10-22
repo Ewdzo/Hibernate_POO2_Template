@@ -27,7 +27,7 @@ public class Transacao {
 		joinColumns = @JoinColumn(name = "transacao"),
 	    inverseJoinColumns = @JoinColumn(name = "despesa")
 	)
-    List<CategoriaDeDespesa> categoria;
+    List<CategoriaDeDespesa> categorias;
     
     double valor;
     String tipo;
@@ -40,5 +40,9 @@ public class Transacao {
         this.valor = valor;
         this.tipo = tipo;
         this.data = data;
+    }
+
+    public void setCategorias(List<CategoriaDeDespesa> categorias) {
+        this.categorias = categorias;
     }
 }
