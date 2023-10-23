@@ -17,7 +17,7 @@ public class HibernateManager {
 
     HibernateManager() {
         props.put("hibernate.show_sql", "true");
-        props.put("hibernate.hbm2ddl.auto", "create");
+        props.put("hibernate.hbm2ddl.auto", "update");
 
         emf = new HibernatePersistenceProvider().createContainerEntityManagerFactory(new CustomPersistenceUnitInfo(puName), props);
         em = emf.createEntityManager();
