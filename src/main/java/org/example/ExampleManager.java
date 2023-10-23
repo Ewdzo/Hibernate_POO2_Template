@@ -99,7 +99,7 @@ public abstract class ExampleManager {
             
             ContaBancaria cb = em.find(ContaBancaria.class, id);
 
-            System.out.print("Pessoa Fisica Encontrada: " + cb);
+            System.out.print("Conta Bancária Encontrada: " + cb.saldo);
 
             em.getTransaction().commit();
         } finally {
